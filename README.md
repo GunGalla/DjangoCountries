@@ -1,0 +1,2 @@
+# DjangoCountries
+Django study project
