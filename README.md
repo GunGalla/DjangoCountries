@@ -11,5 +11,5 @@
 `python manage.py shell_plus --ipython`
 
 
-###
+### Прогресс
 Завершено задание 16.
