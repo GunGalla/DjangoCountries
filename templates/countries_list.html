@@ -6,14 +6,10 @@
 </head>
 <body>
 <ol>
-    {% for country in countries %}
-        <h3>{{ country.country }}</h3>
-        <b>Languages using:</b>
-        <ul>
-            {% for language in country.languages %}
-                <li>{{ language }}</li>
-            {% endfor %}
-        </ul>
+    {% for dist_country in countries %}
+        <a href="{% url 'distinct_country' dist_country.country %}">
+            <li><h3>{{ dist_country.country }}</h3></li>
+        </a>
     {% endfor %}
 </ol>
 </body>
