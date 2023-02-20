@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}\
+
+{% block content %}
 <ol>
   {% for language in languages %}
     <li><h3>{{ language.name }}</h3></li>
   {% endfor %}
 </ol>
-</body>
-</html>
+{% endblock %}

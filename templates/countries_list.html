@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}\
+
+{% block content %}
 <ol>
   {% for country in countries %}
     <a href="{% url 'distinct_country' country.name %}">
@@ -12,5 +8,4 @@
     </a>
   {% endfor %}
 </ol>
-</body>
-</html>
+{% endblock %}

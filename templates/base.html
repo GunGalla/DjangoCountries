@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <a href="{% url 'index' %}">Homepage</a> /
+    <a href="{% url 'countries_list' %}">List of all countries</a> /
+    <a href="{% url 'languages_list' %}">List of all languages</a> /
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+</body>
+</html>
