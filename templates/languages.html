@@ -5,7 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Welcome to the CountrySite! :)</h1>
-<a href="{% url 'languages_list' %}">List of all languages</a>
+<ol>
+  {% for language in languages %}
+    <li><h3>{{ language }}</h3></li>
+  {% endfor %}
+</ol>
 </body>
 </html>

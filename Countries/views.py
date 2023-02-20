@@ -29,3 +29,19 @@ def country(request, country_name):
             context = {'country': item}
             return render(request, 'country.html', context)
     return HttpResponseNotFound(f"Country, named {country_name} not found :(")
+
+
+def languages(request):
+    """View of all using languages."""
+    file = 'country-by-languages.json'
+    with open(file, 'r') as countries_list:
+        countries_json = countries_list.read()
+    countries = json.loads(countries_json)
+    languages = []
+    for item in countries:
+        for language in item['languages']:
+            if language not in languages:
+                languages.append(language)
+            else:
+                pass
+    return render(request, 'languages.html', context={'languages': languages})

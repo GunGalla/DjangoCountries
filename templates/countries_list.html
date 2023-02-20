@@ -6,11 +6,11 @@
 </head>
 <body>
 <ol>
-    {% for dist_country in countries %}
-        <a href="{% url 'distinct_country' dist_country.country %}">
-            <li><h3>{{ dist_country.country }}</h3></li>
-        </a>
-    {% endfor %}
+  {% for dist_country in countries %}
+    <a href="{% url 'distinct_country' dist_country.country %}">
+      <li><h3>{{ dist_country.country }}</h3></li>
+    </a>
+  {% endfor %}
 </ol>
 </body>
 </html>
