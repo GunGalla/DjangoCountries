@@ -5,11 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<h1>{{ country.country }}</h1>
+<h1>{{ country.name }}</h1>
   <b>Languages using:</b>
   <ul>
-    {% for language in country.languages %}
-      <li>{{ language }}</li>
+    {% for language in country.languages.all %}
+      <li>{{ language.name }}</li>
     {% endfor %}
   </ul>
 </body>
