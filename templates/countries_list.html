@@ -1,11 +1,42 @@
 {% extends 'base.html' %}
-
+{% block style %}
+    <style>
+        .letters{
+            display: inline-block;
+            border: 1px solid blue;
+            padding: 5px 10px;
+        }
+    </style>
+{% endblock %}
 {% block content %}
-<ol>
-  {% for country in countries %}
+<br>
+{% for letter in alphabet %}
+    <p class="letters"><a href="{% url 'letter' letter%}">{{ letter }}</a></p>
+{% endfor %}
+<ul>
+  {% for country in page_obj %}
     <a href="{% url 'distinct_country' country.name %}">
       <li><h3>{{ country.name }}</h3></li>
     </a>
   {% endfor %}
-</ol>
+</ul>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock %}
