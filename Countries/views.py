@@ -13,7 +13,7 @@ def index(request):
 
 def countries_list(request):
     """View to show all countries.txt."""
-    countries = Country.objects.all()
+    countries = Country.objects.all().order_by('name')
     return render(request, 'countries_list.html', context={'countries': countries})
 
 
@@ -27,7 +27,16 @@ def country(request, country_name):
     return render(request, 'country.html', context)
 
 
-def languages(request):
+def languages_list(request):
     """View of all using languages."""
-    languages = Language.objects.all()
+    languages = Language.objects.all().order_by('name')
     return render(request, 'languages.html', context={'languages': languages})
+
+
+def language(request, language_name):
+    try:
+        language = Language.objects.get(name=language_name)
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound(f"Language, named {country_name} not found :(")
+    context = {'language': language}
+    return render(request, 'language.html', context)
