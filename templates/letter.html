@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <h3>List of countries, which starts with letter: {{ letter }}</h3>
-<ul>
+<ol>
   {% for country in countries %}
     <a href="{% url 'distinct_country' country.name %}">
       <li><h3>{{ country.name }}</h3></li>
     </a>
   {% endfor %}
-</ul>
+</ol>
 {% endblock %}
