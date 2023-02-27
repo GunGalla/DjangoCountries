@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
+{% block style %}
+    <style>
+        .letters{
+            display: inline-block;
+            border: 1px solid blue;
+            padding: 5px 10px;
+        }
+    </style>
+{% endblock %}
 {% block content %}
+<br>
+{% for letter in alphabet %}
+    <p class="letters"><a href="{% url 'letter' letter%}">{{ letter }}</a></p>
+{% endfor %}
 <h3>List of countries, which starts with letter: {{ letter }}</h3>
 <ol>
   {% for country in countries %}

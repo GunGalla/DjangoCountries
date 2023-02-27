@@ -37,11 +37,8 @@ def country(request, country_name):
 
 
 def country_by_letter(request, letter):
-    # TODO: 19-ое задание выполнено не совсем верно. Алфавит - по сути является фильтром.
-    #   Но при переходе по выбранной букве - алфавит исчезает.
-    #   В самом задании дан пример, там видно как должна работать фильтрация по алфавиту.
     countries = Country.objects.filter(name__startswith=letter)
-    context = {'countries': countries, 'letter': letter}
+    context = {'countries': countries, 'letter': letter, 'alphabet': ALPHABET}
     return render(request, 'letter.html', context)
 
 
@@ -52,10 +49,9 @@ def languages_list(request):
 
 
 def language(request, language_name):
-    # TODO: если пройти по url: http://127.0.0.1:8000/languages/test/, то сайт падает с 500 ошибкой. Исправьте.
     try:
         language = Language.objects.get(name=language_name)
     except ObjectDoesNotExist:
-        return HttpResponseNotFound(f"Language, named {country_name} not found :(")
+        return HttpResponseNotFound(f"Language, named {language_name} not found :(")
     context = {'language': language}
     return render(request, 'language.html', context)
